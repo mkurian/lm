@@ -1,0 +1,59 @@
+
+<div class='container'>
+<div class="jumbotron">
+        
+            <h1>Welcome to your LocalMarket in Kerala</h1>
+        
+        
+          </div>
+
+        <div class="row">
+          <div class="col-sm-4">
+           
+             <h3>Don't you wish to buy locally produced vegetables, plants, puppies, milk, crafts?</h3> 
+                But, how do you find out who is selling those ?
+                 
+           </div>
+			<div class="col-sm-4">
+        You are a great florist, tailor, artist, author, farmer, beekeeper. <p>But you don't know how to market your products.
+          LocalMarket markets your products for free!</p>
+            <h3>Don't you wish you can find local buyers for what you produce?</h3>  
+               It will be much easier and cost effective, if only you can connect with potential buyers.
+            
+                  
+          		 <br/>
+		</div>
+</div>
+ <div class="row">
+ <h3>Now you can, using LocalMarket! 
+          		What would you like to buy or sell?</h3>
+           <div class="hero-unit" ng-controller="InterestCtrl as interestCtrl">
+            <form name="interestForm" ng-submit="interestCtrl.submit()">
+            	<fieldset>
+                <legend>I'd like to </legend>
+                        <input type="checkbox" ng-model="interestCtrl.buy"  name="buysell" value="Buy" />Buy <br />
+                        <input type="checkbox" ng-model="interestCtrl.sell"  name="buysell" value="Sell" />Sell<br />
+       			</fieldset>
+				<p><p><input  type="text" id="items" ng-model="interestCtrl.items" placeholder="Eggs, Fresh curd, bonsai" required="" /> </p>
+				<p><input  type="text" id="email" ng-model="interestCtrl.email" placeholder="email" required="" /> </p>
+	 			<div class="ui-widget" >
+	 	 		 <label for="locations">PinCode/Location/District </label>
+	  	  		<input id="locations" ng-model="interestCtrl.location" placeholder="686513" required="" 
+	  	   			ng-keyup="complete()"/>
+				
+				</div>
+				
+				<input type="submit" value="Express Interest" class="btn btn-success btn-large" ng-disabled="interestForm.$invalid">
+  			</form>
+			</div>  			
+           
+          
+        </div>
+
+        <footer>
+        
+        </footer>
+</div>
+
+ 
+
