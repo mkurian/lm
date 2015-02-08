@@ -89,7 +89,7 @@ angular.module('localmarketApp')
         $http.get('data/pincodes.json').then(loadSuccess, loadFailure);
       },
       submit : function(buy, sell, items, email, location){
-        return $http.post('http://54.149.156.200:8080/localmarket/api/interest', 
+        return $http.post('http://54.149.156.200:8080/api/interest', 
           {buy: buy, sell: sell, location: location, email:email, items:items})
         .then(submitSuccess, submitFailure);
       }
