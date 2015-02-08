@@ -17,7 +17,11 @@ bin/
 # Maven
 *.log
 log/
-*/target/**
+*/target/classes
+*/target/generated-sources
+*/target/localmarket-1.0
+*/target/maven-archiver
+*/target/surefire
 test-classes/*
 
 *.log.lck
