@@ -17,6 +17,9 @@ angular.module('localmarketApp', ['ngRoute'])
         controller: 'ListCtrl',
         controllerAs: 'listCtrl'
       })
+       .when('/thanks', {
+        templateUrl: 'views/thanks.html'
+      })
        .when('/interest', {
         templateUrl: 'views/interest.html',
         controller: 'InterestCtrl',

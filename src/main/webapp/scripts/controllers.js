@@ -87,10 +87,10 @@ self.submit = function(location) {
   return self.interestService.submit(self.buy, self.sell, self.items, self.email, self.location)
       .then(function() {
       console.log('success');
-        //  var redirect = function(searchResults) {
-        //   $location.path('/list');
-        // };
-        // redirect(searchResults);
+         var redirect = function() {
+          $location.path('/thanks');
+        };
+        redirect();
       }, 
       function(err) {
         console.log(err);
