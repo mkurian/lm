@@ -1,11 +1,11 @@
 angular.module('localmarketApp')
-.controller('ReferCtrl', ['ReferService', function(ReferService) {
+.controller('AdvertiseCtrl', ['AdvertiseService', function(AdvertiseService) {
 
   var self = this;
-  self.referService = ReferService;
+  self.advertiseService = AdvertiseService;
   
-  self.refer = function(data) {
-    ReferService.refer(self.data).then(function() {
+  self.advertise = function(data) {
+    AdvertiseService.advertise(self.data).then(function() {
     }, function(err) {
       
     });
@@ -87,10 +87,10 @@ self.submit = function(location) {
   return self.interestService.submit(self.buy, self.sell, self.items, self.email, self.location)
       .then(function() {
       console.log('success');
-         var redirect = function(searchResults) {
-          $location.path('/list');
-        };
-        redirect(searchResults);
+        //  var redirect = function(searchResults) {
+        //   $location.path('/list');
+        // };
+        // redirect(searchResults);
       }, 
       function(err) {
         console.log(err);

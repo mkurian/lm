@@ -2,9 +2,9 @@ angular.module('localmarketApp', ['ngRoute'])
   .config(function ($routeProvider) {
 
     $routeProvider
-      .when('/refer', {
-        templateUrl: 'views/refer.html',
-        controller: 'ReferCtrl',
+      .when('/advertise', {
+        templateUrl: 'views/advertise.html',
+        controller: 'AdvertiseCtrl',
         controllerAs: 'referCtrl'
       })
       .when('/search', {

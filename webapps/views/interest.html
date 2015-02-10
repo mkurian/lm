@@ -34,11 +34,11 @@
                         <input type="checkbox" ng-model="interestCtrl.buy"  name="buysell" value="Buy" />Buy <br />
                         <input type="checkbox" ng-model="interestCtrl.sell"  name="buysell" value="Sell" />Sell<br />
        			</fieldset>
-				<p><p><input  type="text" id="items" ng-model="interestCtrl.items" placeholder="Eggs, Fresh curd, bonsai" required="" /> </p>
-				<p><input  type="text" id="email" ng-model="interestCtrl.email" placeholder="email" required="" /> </p>
+				<p><p><input  type="text" id="items" ng-model="interestCtrl.items" placeholder="Eggs, Fresh curd, bonsai" required="Items are required" /> </p>
+				<p><input  type="text" id="email" ng-model="interestCtrl.email" placeholder="email" required="Email is required" /> </p>
 	 			<div class="ui-widget" >
 	 	 		 <label for="locations">PinCode/Location/District </label>
-	  	  		<input id="locations" ng-model="interestCtrl.location" placeholder="686513" required="" 
+	  	  		<input id="locations" ng-model="interestCtrl.location" placeholder="686513" required="Lcoation is required" 
 	  	   			ng-keyup="complete()"/>
 				
 				</div>

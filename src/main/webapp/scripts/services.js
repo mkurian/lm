@@ -1,23 +1,23 @@
 angular.module('localmarketApp')
-    .factory('ReferService', ['$http', '$q', function($http, $q) {
+    .factory('AdvertiseService', ['$http', '$q', function($http, $q) {
     var message;
     var user = {};
-    var referred = false;
-    var referSuccess = function(resp) {
+    var advertised = false;
+    var advertiseSuccess = function(resp) {
       name = resp.data.name;
-      referred = true;
+      advertised = true;
       return name;
     };
-    var referFailure = function(err) {
+    var advertiseFailure = function(err) {
       console.log('failure');
-      referred = false;
+      advertised = false;
       return $q.reject(err.data);
     };
     return {
       refer: function(data) {
-        return $http.post('http://54.149.156.200:8080/localmarket/ads', 
+        return $http.post('http://54.149.156.200:8080/api/ads', 
           {name: data.name, age: data.age, location: data.location, city: data.city, job: data.job, contact: data.contact})
-        .then(referSuccess, referFailure);
+        .then(advertiseSuccess, advertiseFailure);
       }
     };
   }])
@@ -35,7 +35,7 @@ angular.module('localmarketApp')
 
     return {
       search: function(keyword) {
-        return $http.get('http://54.149.156.200:8080/localmarket/ads',
+        return $http.get('http://54.149.156.200:8080/api/ads',
         {
         params: {
             location: keyword
