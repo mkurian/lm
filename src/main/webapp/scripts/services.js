@@ -15,8 +15,8 @@ angular.module('localmarketApp')
     };
     return {
       refer: function(data) {
-        return $http.post('http://54.149.156.200:8080/api/ads', 
-          {name: data.name, age: data.age, location: data.location, city: data.city, job: data.job, contact: data.contact})
+        return $http.post('http://54.149.156.200:8080/api/advertise', 
+          {name: data.name, location: data.location, city: data.city, contact: data.contact, description: data.description})
         .then(advertiseSuccess, advertiseFailure);
       }
     };

@@ -51,8 +51,8 @@ angular.module('localmarketApp')
   }
 }])
 
-.controller('InterestCtrl', ['InterestService',  '$scope', '$http',
-  function(InterestService, $scope, $http) {
+.controller('InterestCtrl', ['InterestService', '$location',  '$scope', '$http',
+  function(InterestService, $location, $scope, $http) {
   var self = this;
   self.interestService = InterestService;
   self.locationData = [];

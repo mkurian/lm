@@ -4,7 +4,7 @@
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- daily rollover -->
-      <fileNamePattern>./localmarket-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <fileNamePattern>/var/log/localmarket-%d{yyyy-MM-dd}.log</fileNamePattern>
     </rollingPolicy>
      <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
       <maxFileSize>5MB</maxFileSize>
