@@ -38,4 +38,4 @@ var app = angular.module('localmarketApp', ['ngRoute'])
 
 //use only for local testing
 // app.constant('host', 'http://localhost:8080/lm');
-app.constant('host', 'http://54.149.156.200:8080);
+// app.constant('host', 'http://54.149.156.200:8080);
