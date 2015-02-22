@@ -7,9 +7,10 @@ angular.module('localmarketApp')
 
   self.advertise = function(data) {
     AdvertiseService.advertise(self.data).then(function() {
-       self.AlertService.set('Posted successfully');
+       self.alertService.set('Posted successfully');
+       $location.path('/default');
     }, function(err) {
-       self.AlertService.set(err.data.msg);
+       self.alertService.set(err.data.msg);
     });
   };
 }])
