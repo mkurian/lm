@@ -34,7 +34,7 @@ angular.module('localmarketApp')
 }])
 
 
-.controller('DefaultCtrl', ['$location','AdvertiseService', function($location, AlertService) {
+.controller('DefaultCtrl', ['$location','AlertService', function($location, AlertService) {
   var self = this;
   self.alertService = AlertService;
   self.search = function() {
