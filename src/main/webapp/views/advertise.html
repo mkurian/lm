@@ -2,7 +2,7 @@
     <button class="btn btn-success btn-large" ng-click="defaultCtrl.home()" >Home</button>
  </div>
 
-<div class="hero-unit">
+<div class="hero-unit" ng-controller="AdvertiseCtrl as advertiseCtrl">
   <form name="advertiseForm" ng-submit="advertiseCtrl.advertise()">
     <input type="text" ng-model="advertiseCtrl.data.name" placeholder="Name" required="">
     
@@ -11,6 +11,6 @@
     <input type="text" ng-model="advertiseCtrl.data.category" placeholder="Category" required="">
     <input type="text" ng-model="advertiseCtrl.data.contactInfo" placeholder="Contact" required="">
     <input type="text" ng-model="advertiseCtrl.data.description" placeholder="What would you like to sell? Provide all information that would interest a buyer." required="">
-    <input type="submit" value="advertise" class="btn btn-success btn-large" ng-disabled="advertiseForm.$invalid">
+    <input type="submit" value="Post the ad" class="btn btn-success btn-large" ng-disabled="advertiseForm.$invalid">
   </form>
 </div>

@@ -82,7 +82,7 @@ public class HTTPClient {
 	    if( statusCode == 200 || statusCode == 201){
 	    	logger.info("POST={}", response.getStatusLine().getStatusCode());
 	    }else{
-	    	logger.info("POST={}", response.getEntity().toString());
+	    	logger.info("POST={} statusCode={}", response.getEntity().toString(), statusCode);
 	    	throw new Exception("Post failed "+ response.getEntity().toString());
 	    }
 	    return  EntityUtils.toString(response.getEntity(), "UTF-8");
