@@ -27,6 +27,18 @@ angular.module('localmarketApp')
     });
   };
 }])
+.controller('DefaultCtrl', ['$location', function($location) {
+  var self = this;
+  self.search = function() {
+        $location.path('/search');
+  };
+  self.post = function() {
+        $location.path('/advertise');
+  };
+  self.home = function() {
+        $location.path('/default');
+  };
+}])
 .controller('ListCtrl', ['ListService','SingleService','$location', function(ListService, SingleService, $location) {
   var self = this;
   self.listService = ListService;

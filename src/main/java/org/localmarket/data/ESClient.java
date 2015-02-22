@@ -1,41 +1,61 @@
 package org.localmarket.data;
+import io.searchbox.client.JestClient;
+import io.searchbox.client.JestClientFactory;
+import io.searchbox.client.config.HttpClientConfig;
 
-import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
-import org.apache.http.client.ClientProtocolException;
-import org.localmarket.util.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-
+/**
+ * 
+ * Returns a singleton client for handling all requests
+ * 
+ * @author mkurian
+ *
+ */
 public class ESClient {
-	 
-	private static final String index = Constants.INDEX;
-
-	private static final String server = Constants.ES_HOST;
-
-	public static String create(String type, String json)
-			throws ClientProtocolException, IOException, Exception {
-		return HTTPClient.postRequest(server + "/"+ index +"/" + type.toLowerCase(), json);
-	}
 	
-	public static String update(String type, String json, String id)
-			throws ClientProtocolException, IOException, Exception {
-		return HTTPClient.postRequest(server + "/"+ index +"/" + type.toLowerCase() + "/" + id, json);
-	}
-
-	public static String getById(String type, String id)
-			throws ClientProtocolException, IOException, Exception {
-		return HTTPClient.getRequest(server + "/"+ index +"/" + type.toLowerCase() + "/" + id);
-	}
+	private static Logger logger = LoggerFactory.getLogger(ESClient.class);
 	
-	public static String get(String type)
-			throws ClientProtocolException, IOException, Exception {
-		return HTTPClient.getRequest(server + "/"+ index +"/" + type.toLowerCase()+"/_search");
+	/**
+	 * Get ES Client 
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
+	public static JestClient getInstance() throws Exception{
+		if(client == null){
+			init();
+		}
+		return client;
+	}
+
+	static private JestClientFactory _factory = null;
+	static private JestClient client = null;
+	
+	/**
+	 *	Create the singleton Client
+	 * @throws Exception
+	 */
+	static private void init() throws Exception {
+		try {
+			HttpClientConfig clientConfig = new HttpClientConfig.Builder("htpp://172.16.122.85:9200").multiThreaded(true).discoveryEnabled(true).
+					 discoveryFrequency(1L, TimeUnit.SECONDS)
+					 .connTimeout(60000).readTimeout(200000)
+					 .build();
+			logger.info( "Connection timeout:{}" ,clientConfig.getConnTimeout());
+			logger.info( "Read timeout:{}" ,clientConfig.getReadTimeout());
+			 // Construct a new Jest client according to configuration via factory
+			_factory = new JestClientFactory();
+			_factory.setHttpClientConfig(clientConfig);
+			client = _factory.getObject();
+		} catch (Exception e) {
+			logger.error( "Error Initializing Elastic Search ", e);
+			throw new Exception(e);
+		}
 	}
 
 	
-	public static String search(String type, String searchSource)
-			throws ClientProtocolException, IOException, Exception {
-		return HTTPClient.postRequest(server + "/"+ index +"/" + type.toLowerCase()+"/_search", searchSource);
-	}
-
 }

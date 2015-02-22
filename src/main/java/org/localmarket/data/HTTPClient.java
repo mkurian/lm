@@ -1,5 +1,6 @@
 package org.localmarket.data;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,8 +16,6 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-
 
 /**
  * HTTP client for ES requests
@@ -94,10 +93,9 @@ public class HTTPClient {
 	 * make HTTP GET request to the uri with args as params
 	 * @param uri
 	 * @return
-	 * @throws ClientProtocolException
-	 * @throws IOException
+	 * @throws Exception 
 	 */
-	public static String getRequest(String uri) throws ClientProtocolException, IOException{
+	public static String getRequest(String uri) throws Exception{
 		HttpClient client = new DefaultHttpClient();
 
 		HttpGet request = new HttpGet(uri);
@@ -121,7 +119,7 @@ public class HTTPClient {
 				result.append(line);
 			}
 		 }catch(Exception ex){
-//			 throw ex;
+			 throw ex;
 		 }
 		 finally{
 			 if(rd != null){

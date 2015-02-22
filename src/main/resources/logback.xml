@@ -4,13 +4,13 @@
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
      <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- daily rollover -->
-      <fileNamePattern>/var/log/localmarket-%d{yyyy-MM-dd}.log</fileNamePattern>
+      <fileNamePattern>/app/log/localmarket-%d{yyyy-MM-dd}.log</fileNamePattern>
     </rollingPolicy>
      <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
       <maxFileSize>5MB</maxFileSize>
     </triggeringPolicy>
      <encoder>
-     <pattern>%d %-4relative [%thread] %-5level %msg%n</pattern>
+     <pattern>%d %-4relative [%thread] %-5level requestId=%X{requestId} user=%X{user} API=%X{API} %msg%n</pattern>
     </encoder>
   </appender>
 

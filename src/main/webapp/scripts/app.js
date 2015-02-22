@@ -30,7 +30,12 @@ angular.module('localmarketApp', ['ngRoute'])
         controller: 'SingleCtrl',
         controllerAs: 'singleCtrl'
       })
+       .when('/default', {
+        templateUrl: 'views/default.html',
+        controller: 'DefaultCtrl',
+        controllerAs: 'defaultCtrl'
+      })
       .otherwise({
-        redirectTo: '/interest'
+        redirectTo: '/default'
       });
   });
