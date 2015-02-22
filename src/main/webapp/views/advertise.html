@@ -10,7 +10,7 @@
     <input type="text" ng-model="advertiseCtrl.data.city" placeholder="City" required="">
     <input type="text" ng-model="advertiseCtrl.data.category" placeholder="Category" required="">
     <input type="text" ng-model="advertiseCtrl.data.contactInfo" placeholder="Contact" required="">
-    <input type="text" ng-model="advertiseCtrl.data.description" placeholder="What would you like to sell? Provide all information that would interest a buyer." required="">
+    <input class="textarea" type="textarea" ng-model="advertiseCtrl.data.description" placeholder="What would you like to sell? Provide all information that would interest a buyer." required="">
     <input type="submit" value="Post the ad" class="btn btn-success btn-large" ng-disabled="advertiseForm.$invalid">
   </form>
 </div>

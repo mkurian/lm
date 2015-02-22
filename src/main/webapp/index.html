@@ -139,7 +139,13 @@
   <div ng-view></div>
 </div> -->
 
-<div ng-controller="InterestCtrl as interestCtrl" ng-init="interestCtrl.load()" class="ng-cloak"> 
+<!-- <div ng-controller="InterestCtrl as interestCtrl" ng-init="interestCtrl.load()" class="ng-cloak">  -->
+<div ng-controller="DefaultCtrl as defaultCtrl"  class="ng-cloak"> 
+<div class="alert alert-info" ng-show="defaultCtrl.alertService.get()" ng-bind="defaultCtrl.alertService.get()"></div>
+  <!-- <div class="pull-right">
+    <span ng-hide="appCtrl.userService.isLoggedIn()"><a href="#/login">Login</a> | <a href="#/register">Sign Up</a></span>
+    <span ng-show="appCtrl.userService.isLoggedIn()"><a href="#/logout">Logout</a></span>
+  </div> -->
   <div ng-view></div>
 </div>
 

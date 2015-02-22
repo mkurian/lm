@@ -1,21 +1,24 @@
 angular.module('localmarketApp')
-.controller('AdvertiseCtrl', ['AdvertiseService', function(AdvertiseService) {
+.controller('AdvertiseCtrl', ['AdvertiseService', 'AlertService', '$location', function(AdvertiseService, AlertService, $location) {
 
   var self = this;
   self.advertiseService = AdvertiseService;
-  
+  self.alertService = AlertService;
+
   self.advertise = function(data) {
     AdvertiseService.advertise(self.data).then(function() {
+       self.AlertService.set('Posted successfully');
     }, function(err) {
-      
+       self.AlertService.set(err.data.msg);
     });
   };
 }])
 
-.controller('SearchCtrl', ['SearchService', '$location', function(SearchService, $location) {
+.controller('SearchCtrl', ['SearchService', 'AlertService', '$location', function(SearchService, AlertService, $location) {
   var self = this;
   self.searchService = SearchService;
   self.searchResults = [];
+  self.alertService = AlertService;
   self.search = function(keyword) {
     return self.searchService.search(self.keyword).then(function() {
        var redirect = function(searchResults) {
@@ -23,21 +26,16 @@ angular.module('localmarketApp')
       };
       redirect(searchResults);
     }, function(err) {
-      
+       self.AlertService.set('Sorry, no results at this point. Please spread the word about the app and get your friends to post here.');
+
     });
   };
 }])
 
-.controller('MessageCtrl', [ function() {
+
+.controller('DefaultCtrl', ['$location','AdvertiseService', function($location, AlertService) {
   var self = this;
-  self.message = '';
-  
-  self.message = function(message) {
-    return message;
-  };
-}])
-.controller('DefaultCtrl', ['$location', function($location) {
-  var self = this;
+  self.alertService = AlertService;
   self.search = function() {
         $location.path('/search');
   };
@@ -48,6 +46,7 @@ angular.module('localmarketApp')
         $location.path('/default');
   };
 }])
+
 .controller('ListCtrl', ['ListService','SingleService','$location', function(ListService, SingleService, $location) {
   var self = this;
   self.listService = ListService;

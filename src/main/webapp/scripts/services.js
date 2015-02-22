@@ -1,4 +1,18 @@
 angular.module('localmarketApp')
+ .factory('AlertService', function() {
+    var message;
+    return {
+      set: function(msg) {
+        message = msg;
+      },
+      clear: function() {
+        message = null;
+      },
+      get: function() {
+        return message;
+      }
+    };
+  })
     .factory('AdvertiseService', ['$http', '$q', 'host', function($http, $q, host) {
     var message;
     var user = {};
