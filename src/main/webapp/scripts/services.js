@@ -1,5 +1,5 @@
 angular.module('localmarketApp')
-    .factory('AdvertiseService', ['$http', '$q', function($http, $q) {
+    .factory('AdvertiseService', ['$http', '$q', 'host', function($http, $q, host) {
     var message;
     var user = {};
     var advertised = false;
@@ -15,13 +15,13 @@ angular.module('localmarketApp')
     };
     return {
       advertise: function(data) {
-        return $http.post('http://54.149.156.200:8080/api/ads', 
+        return $http.post(host+'/api/ads', 
           {user: data.name, location: data.location, city: data.city, contactInfo: data.contactInfo, description: data.description})
         .then(advertiseSuccess, advertiseFailure);
       }
     };
   }])
-  .factory('SearchService', ['$http', '$q', function($http, $q) {
+  .factory('SearchService', ['$http', '$q' ,'host', function($http, $q, host) {
     var message;
     self.searchResults = [];
     
@@ -35,7 +35,7 @@ angular.module('localmarketApp')
 
     return {
       search: function(keyword) {
-        return $http.get('http://54.149.156.200:8080/api/ads',
+        return $http.get(host+'/api/ads',
         {
         params: {
             location: keyword

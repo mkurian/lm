@@ -27,6 +27,15 @@ angular.module('localmarketApp')
     });
   };
 }])
+
+.controller('MessageCtrl', [ function() {
+  var self = this;
+  self.message = '';
+  
+  self.message = function(message) {
+    return message;
+  };
+}])
 .controller('DefaultCtrl', ['$location', function($location) {
   var self = this;
   self.search = function() {
