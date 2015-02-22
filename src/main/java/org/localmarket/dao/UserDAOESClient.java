@@ -102,7 +102,7 @@ public class UserDAOESClient implements IUserDAO{
 			filterBuilder.must(FilterBuilders.prefixFilter("category", category.toLowerCase()));
 		}
 		
-		filterBuilder.cache(true);
+//		filterBuilder.cache(true);
 		bldr.postFilter(filterBuilder);
 		bldr.size(1000); 
 		

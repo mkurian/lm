@@ -102,7 +102,7 @@ public class AdDAOESClient implements IAdDAO{
 			filterBuilder.must(FilterBuilders.prefixFilter("category", category.toLowerCase()));
 		}
 		
-		filterBuilder.cache(true);
+//		filterBuilder.cache(true);
 		bldr.postFilter(filterBuilder);
 		bldr.size(1000); 
 		
