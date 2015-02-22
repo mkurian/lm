@@ -2,15 +2,19 @@
     <button class="btn btn-success btn-large" ng-click="defaultCtrl.home()" >Home</button>
  </div>
 
-<div class="row-fluid" ng-controller="SingleCtrl as singleCtrl">
+<table class="table table-striped row-fluid" ng-controller="SingleCtrl as singleCtrl">
     <div>
-      <div class="stock-dash span3">
+      <div  >
         Name: {{singleCtrl.ad().name}} <br/>
         ContactInfo: {{singleCtrl.ad().contactInfo}}  <br/>
         
      	Item Description: {{singleCtrl.ad().description}}  <br/>
      	Location: {{singleCtrl.ad().location}}  <br/>
      	City: {{singleCtrl.ad().city}}  <br/>
+
+        <br/>
+        Please do not forget to mention 'LocalMarket' when you contact.
+        
       </div>
     </div>
-</div>
+</table>

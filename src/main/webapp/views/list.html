@@ -2,12 +2,13 @@
     <button class="btn btn-success btn-large" ng-click="defaultCtrl.home()" >Home</button>
  </div>
 
-<div class="row-fluid" ng-controller="ListCtrl as listCtrl">
+<table class="table table-striped row-fluid" ng-controller="ListCtrl as listCtrl">
   <div ng-repeat="ad in listCtrl.ads">
     <div>
-      <div class="stock-dash" ng-click="listCtrl.select(ad)">
-        <span >{{ad.location}} {{ad.city}} {{ad.description}}</span>
+      <div  ng-click="listCtrl.select(ad)">
+        <span >{{ad.location}} {{ad.city}} {{ad.description}} </span>
+        <button class="btn btn-success btn-large" > Contact</button>
       </div>
     </div>
   </div>
-</div>
+</table>
