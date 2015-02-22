@@ -48,5 +48,5 @@ public interface IAdService {
 	@Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
 	public Response search(
 	@QueryParam("location") String location, @QueryParam("city") String city,
-	@QueryParam("category") String category) throws Exception;
+	@QueryParam("category") String category, @QueryParam("buyorsell") String buyOrSell) throws Exception;
 }

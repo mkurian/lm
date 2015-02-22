@@ -30,7 +30,9 @@ angular.module('localmarketApp')
     return {
       advertise: function(data) {
         return $http.post('http://54.149.156.200:8080/api/ads', 
-          {user: data.name, location: data.location, city: data.city, contactInfo: data.contactInfo, description: data.description})
+          {user: data.name, location: data.location, city: data.city, 
+            contactInfo: data.contactInfo, description: data.description,
+            buyOrSell: 'sell'})
         .then(advertiseSuccess, advertiseFailure);
       }
     };

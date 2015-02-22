@@ -39,11 +39,11 @@ public class AdManager implements IAdService {
 		return Response.status(Status.OK).entity(ads).build();
 	}
 
-	public Response search(String location, String city, String category)
+	public Response search(String location, String city, String category, String buyOrSell)
 			throws ClientProtocolException, IOException, Exception {
-		logger.info("search location={} city={} category={}", location, city,
-				category);
-		List<Ad> ads = dao.search(location, city, category);
+		logger.info("search location={} city={} category={} buyOrSell={}", location, city,
+				category, buyOrSell);
+		List<Ad> ads = dao.search(location, city, category, buyOrSell);
 
 		logger.info("search results={}", ads.size());
 		return Response.status(Status.OK).entity(ads).build();

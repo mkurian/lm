@@ -86,7 +86,7 @@ public class AdDAOESClient implements IAdDAO{
 	}
 
 	@Override
-	public List<Ad> search(String location, String city, String category) throws Exception {
+	public List<Ad> search(String location, String city, String category, String buyOrSell) throws Exception {
 		List<Ad> ads = new ArrayList<Ad>();
 		SearchSourceBuilder bldr = new SearchSourceBuilder();
 		BoolFilterBuilder filterBuilder = FilterBuilders.boolFilter();
@@ -100,6 +100,10 @@ public class AdDAOESClient implements IAdDAO{
 		
 		if(category != null){
 			filterBuilder.must(FilterBuilders.prefixFilter("category", category.toLowerCase()));
+		}
+		
+		if(buyOrSell != null){
+			filterBuilder.must(FilterBuilders.prefixFilter("buyorsell", buyOrSell.toLowerCase()));
 		}
 		
 //		filterBuilder.cache(true);

@@ -104,4 +104,18 @@ public class Ad {
 	Double expectedPrice;
 	Integer rating;
 	List<String> tags;
+	
+	String buyOrSell;
+	public String getExpiry() {
+		return expiry;
+	}
+	public void setExpiry(String expiry) {
+		this.expiry = expiry;
+	}
+	public String getBuyOrSell() {
+		return buyOrSell;
+	}
+	public void setBuyOrSell(String buyOrSell) {
+		this.buyOrSell = buyOrSell;
+	}
 }
