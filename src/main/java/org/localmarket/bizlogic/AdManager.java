@@ -45,7 +45,7 @@ public class AdManager implements IAdService {
 				category);
 		List<Ad> ads = dao.search(location, city, category);
 
-		logger.info("search results=", ads.size());
+		logger.info("search results={}", ads.size());
 		return Response.status(Status.OK).entity(ads).build();
 	}
 

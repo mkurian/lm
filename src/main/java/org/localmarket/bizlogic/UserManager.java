@@ -46,7 +46,7 @@ public class UserManager implements IUserService {
 				category);
 		List<User> users = dao.search(location, city, category);
 
-		logger.info("search results=", users.size());
+		logger.info("search results={}", users.size());
 		return Response.status(Status.OK).entity(users).build();
 	}
 
