@@ -17,4 +17,6 @@ public interface IUserDAO {
 	public User create(User user) throws ClientProtocolException, IOException, Exception;
 	
 	public User update(User user, String id) throws ClientProtocolException, IOException, Exception;
+	
+	public User searchUser(String email, String passcode) throws Exception;
 }

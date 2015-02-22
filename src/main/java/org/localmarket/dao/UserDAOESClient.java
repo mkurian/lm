@@ -121,4 +121,36 @@ public class UserDAOESClient implements IUserDAO{
 		
 		return users;
 	}
+	
+	
+	public User searchUser(String email, String passKey) throws Exception {
+		List<User> users = new ArrayList<User>();
+		SearchSourceBuilder bldr = new SearchSourceBuilder();
+		BoolFilterBuilder filterBuilder = FilterBuilders.boolFilter();
+		
+		if(email != null){
+			filterBuilder.must(FilterBuilders.prefixFilter("email", email.toLowerCase()));
+		}
+		if(passKey != null){
+			filterBuilder.must(FilterBuilders.prefixFilter("passKey", passKey.toLowerCase()));
+		}
+		
+		bldr.postFilter(filterBuilder);
+		bldr.size(2); 
+		
+		
+		String response = ElasticSearchClient.search(Constants.TYPE_USER, bldr.toString());
+		JSONObject result = new JSONObject(response);
+		JSONObject userResult = result.getJSONObject("hits");
+		JSONArray hits = userResult.getJSONArray("hits");
+		for(int i = 0 ; i < hits.length() ; i++){
+			JSONObject hit = (JSONObject) hits.get(i);
+			String source = hit.getJSONObject("_source").toString();
+			
+			User user = (User)JSONDeserializer.generate("User", source.toString());
+			users.add(user);
+		}
+		
+		return users.get(0);
+	}
 }

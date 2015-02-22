@@ -25,17 +25,17 @@ public class LoggingFilter implements Filter {
 			throws java.io.IOException, javax.servlet.ServletException {
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
-//		String realmId = httpRequest.getHeader("realmId");
-//    	String authHeader = httpRequest.getHeader("Authorization");
-//    	String authId = "";
-//    	try{
-//    		authId = authHeader.split("=")[1].split(",")[0];
-//    	}catch(Exception ex){
-//    		//ignore exception, could not get authId for logging
-//    	}
+    	String authHeader = httpRequest.getHeader("Authorization");
+    	//Authorization user=userId,token=token
+    	String userId = "";
+    	try{
+    		userId = authHeader.split(",")[0].split("=")[1];
+    	}catch(Exception ex){
+    		//ignore exception, could not get authId for logging
+    	}
 
 		MDC.put("requestId", UUID.randomUUID().toString());
-//		MDC.put("user", realmId != null? realmId : authId);
+		MDC.put("user", userId);
 		MDC.put("API", httpRequest.getRequestURI());
 		chain.doFilter(request, response);
 	}
@@ -47,7 +47,7 @@ public class LoggingFilter implements Filter {
 	public void destroy() {
 
 		MDC.remove("requestId");
-//		MDC.remove("user");
+		MDC.remove("user");
 		MDC.remove("API");
 	}
 

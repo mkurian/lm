@@ -41,6 +41,7 @@
 		<resteasy.version>3.0.6.Final</resteasy.version>
 			<jest.version>0.1.1</jest.version>
 			<jackson2.version>2.3.2</jackson2.version>
+			<aws.version>1.9.21</aws.version>
 	</properties>
 	<dependencies>
 	<dependency>
@@ -75,6 +76,13 @@
 	<artifactId>json</artifactId>
 	<version>20140107</version>
 </dependency>
+<!--
+<dependency>
+	<groupId>com.amazonaws</groupId>
+	<artifactId>aws-java-sdk</artifactId>
+	<version>${aws.version}</version>
+</dependency>
+-->
  	<dependency>
         <groupId>io.searchbox</groupId>
         <artifactId>jest</artifactId>

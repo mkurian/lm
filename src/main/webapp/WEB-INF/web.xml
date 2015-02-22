@@ -43,6 +43,18 @@
 	</filter-mapping>
 	
 	<filter>
+		<filter-name>auth-filter</filter-name>
+		<filter-class>
+			org.localmarket.util.AuthFilter
+		</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>auth-filter</filter-name>
+		<url-pattern>/api/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
 		<filter-name>logging-filter</filter-name>
 		<filter-class>
 			org.localmarket.util.LoggingFilter

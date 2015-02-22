@@ -10,7 +10,7 @@
       <maxFileSize>5MB</maxFileSize>
     </triggeringPolicy>
      <encoder>
-     <pattern>%d %-4relative [%thread] %-5level %class{0} %L requestId=%X{requestId} API=%X{API} %msg%n</pattern>
+     <pattern>%d %-4relative [%thread] %-5level %class{0} %L requestId=%X{requestId} user=%X{user} API=%X{API} %msg%n</pattern>
     </encoder>
   </appender>
 

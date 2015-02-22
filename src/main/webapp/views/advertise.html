@@ -1,7 +1,8 @@
+<div class="container text-center">
 <div class="row" ng-controller="DefaultCtrl as defaultCtrl">
     <button class="btn btn-success btn-large" ng-click="defaultCtrl.home()" >Home</button>
  </div>
-
+</div>
 <div class="hero-unit" ng-controller="AdvertiseCtrl as advertiseCtrl">
   <form name="advertiseForm" ng-submit="advertiseCtrl.advertise()">
     <input type="text" ng-model="advertiseCtrl.data.name" placeholder="Name" required="">

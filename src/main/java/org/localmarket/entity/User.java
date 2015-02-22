@@ -9,6 +9,25 @@ import java.util.List;
  */
 
 public class User {
+	
+	
+	String token;
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	String passkey;
+	
+	public String getPasskey() {
+		return passkey;
+	}
+	public void setPasskey(String passkey) {
+		this.passkey = passkey;
+	}
+
 	String id;
 	public String getId() {
 		return id;
