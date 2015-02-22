@@ -15,7 +15,7 @@ angular.module('localmarketApp')
     };
     return {
       advertise: function(data) {
-        return $http.post('http://54.149.156.200:8080/api/ads', 
+        return $http.post('http://54.149.156.200:8080/lm/api/ads', 
           {user: data.name, location: data.location, city: data.city, contactInfo: data.contactInfo, description: data.description})
         .then(advertiseSuccess, advertiseFailure);
       }
@@ -35,7 +35,7 @@ angular.module('localmarketApp')
 
     return {
       search: function(keyword) {
-        return $http.get('http://54.149.156.200:8080/api/ads',
+        return $http.get('http://54.149.156.200:8080/lm/api/ads',
         {
         params: {
             location: keyword
