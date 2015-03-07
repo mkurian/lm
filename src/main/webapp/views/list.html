@@ -7,7 +7,7 @@
 
 <table class="table table-striped row-fluid" ng-controller="ListCtrl as listCtrl">
   <div ng-repeat="ad in listCtrl.ads">
-    <div>
+    <div class="newsnbbxnoclr snbbox white_box " style="background: rgb(255, 255, 255);">
       <div  ng-click="listCtrl.select(ad)">
         <span >{{ad.location}} {{ad.city}} {{ad.description}} </span>
         <button class="btn btn-success btn-large" > Contact</button>

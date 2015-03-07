@@ -30,6 +30,7 @@ angular.module('localmarketApp')
     return {
       advertise: function(data) {
         return $http.post('http://54.149.156.200:8080/api/ads', 
+          // return $http.post('http://localhost:8080/lm/api/ads', 
           {user: data.name, location: data.location, city: data.city, 
             contactInfo: data.contactInfo, description: data.description,
             buyOrSell: 'sell'})
@@ -52,6 +53,7 @@ angular.module('localmarketApp')
     return {
       search: function(keyword) {
         return $http.get('http://54.149.156.200:8080/api/ads',
+          // return $http.get('http://localhost:8080/lm/api/ads', 
         {
         params: {
             location: keyword
@@ -104,9 +106,11 @@ angular.module('localmarketApp')
       loadLocations : function(){
         $http.get('data/pincodes.json').then(loadSuccess, loadFailure);
       },
-      submit : function(buy, sell, items, email, location){
-        return $http.post('http://54.149.156.200:8080/api/interest', 
-          {buy: buy, sell: sell, location: location, email:email, items:items})
+      submit : function(items, email, location){
+        return $http.post('http://54.149.156.200:8080/api/ads', 
+          { location: location, 
+            contactInfo: email, description: items,
+            buyOrSell: 'buy'})
         .then(submitSuccess, submitFailure);
       }
     };
