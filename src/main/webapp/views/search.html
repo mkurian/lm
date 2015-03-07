@@ -1,14 +1,22 @@
 
-<div class="row" ng-controller="DefaultCtrl as defaultCtrl">
-	<div class="container text-center">
-    <button class="btn btn-success btn-large" ng-click="defaultCtrl.home()">Home</button>
- </div>
+<div ng-controller="DefaultCtrl as defaultCtrl">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only"><a href="#">Home</a></span>
+            <span class="sr-only active"><a href="#search">Search</a></span>
+            <span class="sr-only"><a href="#advertise">Post Ad</a></span>
+          </button>
+        </div>
+      </div>
+    </nav>
 </div>
 
 <div class="hero-unit" >
   <form name="searchForm" ng-submit="searchCtrl.search()">
     <input type="text" ng-model="searchCtrl.keyword" placeholder="Thrissur" required="">
-    <input type="submit" value="Search" class="btn btn-success btn-large" ng-disabled="searchForm.$invalid">
+    <input type="submit" value="Search" class="btn btn-success btn-small" ng-disabled="searchForm.$invalid">
   </form>
 </div>
 
